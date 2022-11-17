@@ -24,4 +24,6 @@ return require('packer').startup(function(use)
 	-- colorschemes
 	use 'morhetz/gruvbox'
 	use 'sainnhe/gruvbox-material'
+  -- language server(from packer.nvim)
+  use 'mfussenegger/nvim-jdtls'
 end)

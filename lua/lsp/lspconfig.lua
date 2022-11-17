@@ -56,7 +56,7 @@ cmp.setup({
 	})
 })
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- pyright setup
 nvim_lsp.pyright.setup({
@@ -88,7 +88,21 @@ nvim_lsp.rust_analyzer.setup({
     }
 })
 
+nvim_lsp.ccls.setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
+	init_options = {
+		compilationDatabaseDirectory = "build";
+		index = {
+			threads = 0;
+		};
+		clang = {
+			excludeArgs = { "-frounding-math" };
+		}
+	},
+}
 
-
--- Show line diagnostics automatically in hover window
--- vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})]]
+nvim_lsp.java_language_server.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
