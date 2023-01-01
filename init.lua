@@ -5,3 +5,4 @@ require("keymap")
 require("themes")
 
 require("lsp/lspconfig")
+require("ftplugin/java")
